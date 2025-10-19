@@ -5,6 +5,12 @@ pipeline {
         maven 'Maven-Local'   // 💡 Nombre configurado en Manage Jenkins → Tools → Maven
         jdk 'jdk23'           // 💡 Nombre configurado en Manage Jenkins → Tools → JDK
     }
+stage('Compilar con Maven') {
+    steps {
+        echo '⚙️ Compilando proyecto con Maven (ruta absoluta)...'
+        sh '/opt/homebrew/bin/mvn clean compile'
+    }
+}
 
     environment {
         DEPLOY_DIR = '/Users/danieldelcanto/Desktop/deploy' // Carpeta destino del artefacto
